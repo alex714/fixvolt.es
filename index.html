@@ -3,59 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt | Servicio Técnico Avanzado de Inversores Solares</title>
-    <meta name="description" content="Laboratorio de electrónica de potencia. Reparación de Deye, Huawei, Turbo Energy en toda España. Especialistas en errores F56, ISO y averías críticas.">
+    <title>FixVolt | Reparación de Inversores Solares | Servicio Técnico</title>
     
     <style>
-        :root { --gold: #ffcc00; --bg: #050505; --card: #111; --text: #f0f0f0; --dim: #888; --red: #ff4444; }
-        body { font-family: 'JetBrains Mono', monospace; margin: 0; background: var(--bg); color: var(--text); line-height: 1.4; }
+        :root { --gold: #ffcc00; --bg: #0a0a0a; --card: #141414; --text: #e0e0e0; --red: #ff3333; }
+        body { font-family: 'JetBrains Mono', monospace; margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; }
         
-        header { padding: 90px 20px 60px; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); border-bottom: 3px solid var(--gold); }
-        .location-tag { font-size: 11px; letter-spacing: 4px; color: var(--gold); margin-bottom: 15px; text-transform: uppercase; }
-        .brand { font-size: clamp(45px, 12vw, 85px); font-weight: 900; margin: 0; letter-spacing: -4px; line-height: 1; }
-        .sub-brand { font-size: 18px; font-weight: bold; margin-top: 10px; opacity: 0.8; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 60px; }
-        .card { background: var(--card); border: 1px solid #222; padding: 30px; position: relative; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); background: #161616; }
-        .card h3 { color: var(--gold); margin: 0 0 15px; font-size: 20px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        
-        .stat-bar { background: #222; height: 6px; width: 100%; margin: 15px 0; }
-        .stat-fill { background: var(--gold); height: 100%; }
-        
-        .error-list { list-style: none; padding: 0; font-size: 13px; color: #aaa; }
-        .error-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
-        .error-list li::before { content: ">"; position: absolute; left: 0; color: var(--gold); }
-        .crit { color: var(--red); font-weight: bold; }
+        /* HEADER - СТРОГИЙ СТИЛЬ */
+        header { padding: 60px 20px; text-align: left; max-width: 1100px; margin: 0 auto; border-bottom: 2px solid var(--gold); }
+        .brand { font-size: 70px; font-weight: 900; letter-spacing: -4px; margin: 0; color: #fff; }
+        .tagline { color: var(--gold); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
 
-        .data-table { width: 100%; border-collapse: collapse; margin: 40px 0; font-size: 14px; background: #0a0a0a; }
-        .data-table th { text-align: left; color: var(--gold); padding: 15px; border-bottom: 2px solid var(--gold); text-transform: uppercase; font-size: 12px; }
-        .data-table td { padding: 15px; border-bottom: 1px solid #222; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
-        .cta-box { background: var(--gold); color: #000; padding: 70px 20px; text-align: center; font-weight: 900; margin-top: 50px; }
-        .cta-box h2 { font-size: 32px; text-transform: uppercase; margin: 0 0 20px; letter-spacing: -1px; }
-        .btn-black { background: #000; color: var(--gold); padding: 22px 50px; text-decoration: none; display: inline-block; font-size: 20px; font-weight: 900; border-radius: 0; transition: 0.3s; }
-        .btn-black:hover { transform: scale(1.05); }
+        /* СЕТКА УСЛУГ (КАК НА PL) */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .s-card { background: var(--card); border: 1px solid #222; padding: 25px; transition: 0.2s; position: relative; }
+        .s-card:hover { border-color: var(--gold); }
+        .s-card h3 { color: var(--gold); font-size: 16px; margin-top: 0; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .s-card p { font-size: 13px; color: #999; }
+        .error-tag { font-size: 11px; font-weight: bold; color: var(--red); display: block; margin-top: 10px; }
 
-        .logistics { background: #111; padding: 30px; border-left: 5px solid var(--gold); margin-top: 40px; }
-        
-        footer { padding: 60px 20px; border-top: 1px solid #222; font-size: 11px; color: #555; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+        /* ТАБЛИЦА СТАТИСТИКИ */
+        .stats-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px; background: #000; }
+        .stats-table th { background: #1a1a1a; color: var(--gold); padding: 12px; text-align: left; text-transform: uppercase; }
+        .stats-table td { padding: 12px; border-bottom: 1px solid #222; }
+
+        /* БЛОК С КНОПКОЙ (CONVERTER) */
+        .cta-section { background: var(--gold); color: #000; padding: 60px 20px; text-align: center; margin-top: 50px; }
+        .cta-section h2 { font-size: 30px; font-weight: 900; margin: 0 0 15px; }
+        .whatsapp-btn { background: #000; color: var(--gold); padding: 20px 40px; text-decoration: none; display: inline-block; font-size: 20px; font-weight: 900; border: 3px solid #000; transition: 0.3s; }
+        .whatsapp-btn:hover { background: transparent; color: #000; }
+
+        footer { padding: 40px 20px; text-align: center; font-size: 10px; color: #444; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="location-tag">Ingeniería Fv • Soporte Nacional</div>
     <h1 class="brand">FIXVOLT</h1>
-    <div class="sub-brand">LABORATORIO DE ELECTRÓNICA DE POTENCIA</div>
+    <div class="tagline">Laboratorio de Electrónica de Potencia | España</div>
 </header>
 
 <div class="container">
-    <h2 style="text-align:center; color:var(--gold); margin-bottom: 50px; text-transform: uppercase;">Diagnóstico y Análisis de Fallos 2026</h2>
+    <div class="services-grid">
+        <div class="s-card">
+            <h3>Deye / Turbo Energy</h3>
+            <p>Reparación avanzada de la etapa DC/AC. Solución definitiva a fallos de bus y comunicación.</p>
+            <span class="error-tag">ERRORES: F56, F13, F22, F64</span>
+        </div>
+        <div class="s-card">
+            <h3>Huawei SUN2000</h3>
+            <p>Especialistas en la serie L1, M1 y M2. Diagnóstico de fugas de corriente y módulos de potencia.</p>
+            <span class="error-tag">ERRORES: 311, 318, 2061, ISO</span>
+        </div>
+        <div class="s-card">
+            <h3>Fallo de Aislamiento</h3>
+            <p>Localización de fallos de resistencia de aislamiento en el campo fotovoltaico y el inversor.</p>
+            <span class="error-tag">ESTADO: CRÍTICO (Peligro de incendio)</span>
+        </div>
+        <div class="s-card">
+            <h3>Recogida Nacional</h3>
+            <p>Servicio puerta a puerta en toda la Península (MRW / SEUR). Tiempo medio: 48/72h.</p>
+            <span class="error-tag" style="color:var(--gold)">COBERTURA: TODA ESPAÑA</span>
+        </div>
+    </div>
 
-    <div class="grid">
-        <div class="card">
-            <h3>TURBO ENERGY / DEYE</h3>
-            <div class="stat-
+    <h2 style="color: var(--gold); font-size: 18px; text-transform: uppercase;">Estadísticas de Reparación 2026</h2>
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Marca / Modelo</th>
+                <th>Avería Principal</th>
+                <th>Tasa de Éxito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Deye Híbrido</td><td>Fallo de IGBT / DC Bus High</td><td>94%</td></tr>
+            <tr><td>Huawei SUN2000</td><td>Resistencia de Aislamiento (ISO)</td><td>89
