@@ -3,130 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt España | Reparación de Inversores Solares y Fotovoltaica</title>
+    <title>FixVolt España | Servicio Técnico Avanzado de Inversores Solares</title>
+    <meta name="description" content="Especialistas en reparación de inversores fotovoltaicos en España. Diagnóstico de errores Deye F56, Huawei ISO, Turbo Energy. Laboratorio de electrónica de potencia.">
     
-    <meta name="description" content="Servicio técnico líder en España para inversores Deye, Huawei, Turbo Energy y GoodWe. Especialistas en Error F56, ISO y reparación de placas de potencia.">
-    <meta name="keywords" content="reparación inversor solar Madrid, servicio técnico Deye España, reparar inversor Huawei, error F56 Deye, reparación electrónica potencia España, autoconsumo">
-    
-    <meta property="og:title" content="FixVolt España | Soporte Técnico Inversores">
-    <meta property="og:description" content="Especialistas en electrónica de potencia para sistemas solares en toda España.">
-    <meta property="og:type" content="website">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --gold: #FFD700;
-            --gold-hover: #FFC400;
-            --bg-dark: #0A0A0A;
-            --card-bg: #141414;
-            --text-main: #FFFFFF;
-            --text-dim: #A0A0A0;
-            --border: #222222;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; }
-
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .kicker { font-family: 'JetBrains Mono', monospace; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 14px; margin-bottom: 20px; }
-        h1 { font-size: clamp(40px, 8vw, 90px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-        .highlight { color: var(--gold); }
-
-        .cta-button {
-            display: inline-block;
-            padding: 20px 45px;
-            background-color: var(--gold);
-            color: #000;
-            text-decoration: none;
-            font-weight: 800;
-            border-radius: 4px;
-            transition: 0.3s;
-            margin-top: 30px;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover { background-color: var(--gold-hover); transform: scale(1.05); }
-
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
+        :root { --gold: #ffcc00; --bg: #050505; --accent: #111; --card: #1a1a1a; --text: #f0f0f0; --red: #ff4444; }
+        body { font-family: 'JetBrains Mono', monospace; margin: 0; background: var(--bg); color: var(--text); line-height: 1.4; }
+        header { padding: 80px 20px; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); border-bottom: 3px solid var(--gold); }
+        .brand { font-size: clamp(35px, 8vw, 65px); font-weight: 900; letter-spacing: -2px; margin: 0; }
+        .brand span { color: var(--gold); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         
-        .card { background: var(--card-bg); padding: 40px; border: 1px solid var(--border); border-radius: 8px; transition: 0.3s; position: relative; overflow: hidden; }
-        .card:hover { border-color: var(--gold); }
-        .card h3 { color: var(--gold); margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; }
+        /* PANEL DE DIAGNÓSTICO */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .stat-card { background: var(--card); border: 1px solid #333; padding: 25px; position: relative; overflow: hidden; }
+        .stat-card::before { content: "TECHNICAL_DATA_2026"; position: absolute; top: 5px; right: 10px; font-size: 10px; opacity: 0.3; }
+        .stat-card h3 { color: var(--gold); margin: 0 0 10px 0; font-size: 18px; text-transform: uppercase; }
+        .stat-bar { background: #333; height: 8px; width: 100%; margin: 15px 0; border-radius: 4px; }
+        .stat-fill { background: var(--gold); height: 100%; border-radius: 4px; }
+        .error-list { font-size: 13px; color: #aaa; list-style: none; padding: 0; }
+        .error-list li { margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 5px; }
+        .critical { color: var(--red); font-weight: bold; } 
 
-        .location-tag { font-size: 12px; color: var(--gold); opacity: 0.7; margin-top: 40px; text-align: center; font-family: 'JetBrains Mono', monospace; }
+        /* TABLA TÉCNICA */
+        .tech-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 14px; background: #0a0a0a; }
+        .tech-table th { text-align: left; color: var(--gold); padding: 12px; border-bottom: 2px solid var(--gold); text-transform: uppercase; }
+        .tech-table td { padding: 12px; border-bottom: 1px solid #222; }
 
-        footer { padding: 50px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 14px; }
+        /* CONTACTO Y ACCIÓN */
+        .cta-box { background: var(--gold); color: #000; padding: 60px 20px; text-align: center; font-weight: 900; margin-top: 40px; }
+        .btn-whatsapp { background: #000; color: var(--gold); padding: 20px 40px; text-decoration: none; display: inline-block; margin-top: 25px; font-size: 22px; border-radius: 4px; transition: 0.3s; }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        
+        footer { padding: 50px 20px; background: #000; border-top: 1px solid #222; font-size: 12px; color: #666; }
+        .footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
+        .badge { color: var(--gold); border: 1px solid var(--gold); padding: 5px 12px; font-size: 12px; display: inline-block; margin-bottom: 20px; }
     </style>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "FixVolt España",
-      "description": "Servicio técnico de inversores solares en España",
-      "areaServed": "Spain",
-      "serviceType": "Repair Service"
-    }
-    </script>
 </head>
-<body>
+<body> 
 
-    <header>
-        <div class="kicker">Ingeniería Electrónica de Potencia</div>
-        <h1>FIXVOLT <span class="highlight">ESPAÑA</span></h1>
-        <p style="color: var(--text-dim); max-width: 800px; font-size: clamp(18px, 2vw, 22px);">
-            Líderes en soporte técnico para sistemas de autoconsumo. Reparación avanzada de inversores fotovoltaicos con cobertura nacional.
-        </p>
-        <a href="https://wa.me/34600000000" class="cta-button">Enviar mensaje WhatsApp</a>
-    </header>
+<header>
+    <div class="badge">LABORATORIO DE ELECTRÓNICA DE POTENCIA</div>
+    <h1 class="brand">FIXVOLT<span>.ES</span></h1>
+    <p style="letter-spacing: 3px; opacity: 0.8; margin-top: 10px;">SERVICIO TÉCNICO FOTOVOLTAICO NACIONAL</p>
+</header> 
 
-    <section id="servicios">
-        <h2 style="font-size: clamp(28px, 4vw, 42px); text-align: center; font-weight: 900;">Soporte Técnico Especializado</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>DEYE / TURBO ENERGY</h3>
-                <p>Especialistas en la corrección de <strong>Error F56</strong>, fallos de bus DC y sincronización con baterías de litio.</p>
-            </div>
-            <div class="card">
-                <h3>HUAWEI SUN2000</h3>
-                <p>Reparación de fallos de aislamiento <strong>(Error ISO)</strong>, problemas de red y optimizadores de potencia.</p>
-            </div>
-            <div class="card">
-                <h3>SOLAR EDGE / GOODWE</h3>
-                <p>Diagnóstico de placas base, sustitución de IGBTs y mantenimiento de sistemas industriales.</p>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: #0f0f0f; border-radius: 20px; text-align: center; padding: 80px 20px;">
-        <h2 style="color: var(--gold); font-weight: 900;">¿Sistema parado por avería?</h2>
-        <p style="margin-top: 20px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            No pierda producción solar. Enviamos técnicos o gestionamos la recogida de su equipo en cualquier punto de la península.
-        </p>
-        <a href="https://wa.me/34600000000" class="cta-button">Consultar ahora</a>
-        
-        <div class="location-tag">
-            MADRID • BARCELONA • VALENCIA • SEVILLA • MÁLAGA • ZARAGOZA • MURCIA • ALICANTE
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 FixVolt España. Todos los derechos reservados.</p>
-        <p style="margin-top: 15px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #444;">Expertos en Inversores Híbridos y Microinversores</p>
-    </footer>
-
-</body>
-</html>
+<div class="container">
+    <h2 style="text-align:center; color:var(--gold); font-size: 28px;">ANÁLISIS DE FALLOS Y ESTADÍSTICAS 2026</h2>
+    <p style="text-align:center; opacity:0.7; max-width:
