@@ -4,50 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FixVolt España | Servicio Técnico Avanzado de Inversores Solares</title>
-    <meta name="description" content="Especialistas en reparación de inversores fotovoltaicos en España. Diagnóstico de errores Deye F56, Huawei ISO, Turbo Energy. Laboratorio de electrónica de potencia.">
+    <meta name="description" content="Laboratorio de electrónica de potencia. Reparación de Deye, Huawei, Turbo Energy en toda España. Especialistas en errores F56, ISO y averías críticas.">
     
     <style>
-        :root { --gold: #ffcc00; --bg: #050505; --accent: #111; --card: #1a1a1a; --text: #f0f0f0; --red: #ff4444; }
+        :root { --gold: #ffcc00; --bg: #050505; --card: #111; --text: #f0f0f0; --dim: #888; --red: #ff4444; }
         body { font-family: 'JetBrains Mono', monospace; margin: 0; background: var(--bg); color: var(--text); line-height: 1.4; }
-        header { padding: 80px 20px; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); border-bottom: 3px solid var(--gold); }
-        .brand { font-size: clamp(35px, 8vw, 65px); font-weight: 900; letter-spacing: -2px; margin: 0; }
-        .brand span { color: var(--gold); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         
-        /* PANEL DE DIAGNÓSTICO */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .stat-card { background: var(--card); border: 1px solid #333; padding: 25px; position: relative; overflow: hidden; }
-        .stat-card::before { content: "TECHNICAL_DATA_2026"; position: absolute; top: 5px; right: 10px; font-size: 10px; opacity: 0.3; }
-        .stat-card h3 { color: var(--gold); margin: 0 0 10px 0; font-size: 18px; text-transform: uppercase; }
-        .stat-bar { background: #333; height: 8px; width: 100%; margin: 15px 0; border-radius: 4px; }
-        .stat-fill { background: var(--gold); height: 100%; border-radius: 4px; }
-        .error-list { font-size: 13px; color: #aaa; list-style: none; padding: 0; }
-        .error-list li { margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        .critical { color: var(--red); font-weight: bold; } 
-
-        /* TABLA TÉCNICA */
-        .tech-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 14px; background: #0a0a0a; }
-        .tech-table th { text-align: left; color: var(--gold); padding: 12px; border-bottom: 2px solid var(--gold); text-transform: uppercase; }
-        .tech-table td { padding: 12px; border-bottom: 1px solid #222; }
-
-        /* CONTACTO Y ACCIÓN */
-        .cta-box { background: var(--gold); color: #000; padding: 60px 20px; text-align: center; font-weight: 900; margin-top: 40px; }
-        .btn-whatsapp { background: #000; color: var(--gold); padding: 20px 40px; text-decoration: none; display: inline-block; margin-top: 25px; font-size: 22px; border-radius: 4px; transition: 0.3s; }
-        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        header { padding: 90px 20px 60px; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); border-bottom: 3px solid var(--gold); }
+        .location-tag { font-size: 11px; letter-spacing: 4px; color: var(--gold); margin-bottom: 15px; text-transform: uppercase; }
+        .brand { font-size: clamp(45px, 12vw, 85px); font-weight: 900; margin: 0; letter-spacing: -4px; line-height: 1; }
+        .sub-brand { font-size: 18px; font-weight: bold; margin-top: 10px; opacity: 0.8; }
         
-        footer { padding: 50px 20px; background: #000; border-top: 1px solid #222; font-size: 12px; color: #666; }
-        .footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
-        .badge { color: var(--gold); border: 1px solid var(--gold); padding: 5px 12px; font-size: 12px; display: inline-block; margin-bottom: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        
+        /* СТАТИСТИКА И БРЕНДЫ */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 60px; }
+        .card { background: var(--card); border: 1px solid #222; padding: 30px; position: relative; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); background: #161616; }
+        .card h3 { color: var(--gold); margin: 0 0 15px; font-size: 20px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        
+        .stat-bar { background: #222; height: 6px; width: 100%; margin: 15px 0; }
+        .stat-fill { background: var(--gold); height: 100%; }
+        
+        .error-list { list-style: none; padding: 0; font-size: 13px; color: #aaa; }
+        .error-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
+        .error-list li::before { content: ">"; position: absolute; left: 0; color: var(--gold); }
+        .crit { color: var(--red); font-weight: bold; }
+
+        /* ТАБЛИЦА */
+        .data-table { width: 100%; border-collapse: collapse; margin: 40px 0; font-size: 14px; background: #0a0a0a; }
+        .data-table th { text-align: left; color: var(--gold); padding: 15px; border-bottom: 2px solid var(--gold); text-transform: uppercase; font-size: 12px; }
+        .data-table td { padding: 15px; border-bottom: 1px solid #222; }
+
+        /* БЛОК ДЕЙСТВИЯ (КАК В ПЛ) */
+        .cta-box { background: var(--gold); color: #000; padding: 70px 20px; text-align: center; font-weight: 900; margin-top: 50px; }
+        .cta-box h2 { font-size: 32px; text-transform: uppercase; margin: 0 0 20px; letter-spacing: -1px; }
+        .btn-black { background: #000; color: var(--gold); padding: 22px 50px; text-decoration: none; display: inline-block; font-size: 20px; font-weight: 900; border-radius: 0; transition: 0.3s; }
+        .btn-black:hover { transform: scale(1.05); }
+
+        .logistics { background: #111; padding: 30px; border-left: 5px solid var(--gold); margin-top: 40px; }
+        
+        footer { padding: 60px 20px; border-top: 1px solid #222; font-size: 11px; color: #555; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
-<body> 
+<body>
 
 <header>
-    <div class="badge">LABORATORIO DE ELECTRÓNICA DE POTENCIA</div>
+    <div class="location-tag">Ingeniería Fv • Soporte Nacional</div>
     <h1 class="brand">FIXVOLT<span>.ES</span></h1>
-    <p style="letter-spacing: 3px; opacity: 0.8; margin-top: 10px;">SERVICIO TÉCNICO FOTOVOLTAICO NACIONAL</p>
-</header> 
+    <div class="sub-brand">LABORATORIO DE ELECTRÓNICA DE POTENCIA</div>
+</header>
 
 <div class="container">
-    <h2 style="text-align:center; color:var(--gold); font-size: 28px;">ANÁLISIS DE FALLOS Y ESTADÍSTICAS 2026</h2>
-    <p style="text-align:center; opacity:0.7; max-width:
+    <h2 style="text-align:center; color:var(--gold); margin-bottom: 50px; text-transform: uppercase;">Diagnóstico y Análisis de Fallos 2026</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>TURBO ENERGY / DEYE</h3>
+            <div class="stat-bar"><div class="stat-fill" style="width: 92%;"></div></div>
+            <ul class="error-list">
+                <li><span class="crit">ERROR F56</span>: DC Bus High</li>
+                <li><span class="crit">ERROR F13</span>: Working Overcurrent</li>
+                <li>Fallo de comunicación BMS (Pylontech/Dyness)</li>
+                <li>Reparación de etapa de potencia IGBT</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>HUAWEI SUN2000</h3>
+            <div class="stat-bar"><div class="stat-fill" style="width: 68%;"></div></div>
+            <ul class="error-list">
+                <li><span class="crit">ALARMA 311/318</span>: Resistencia ISO</li>
+                <li>Fallo de unidad de potencia interna</li>
+                <li>Daños por sobretensión (Tormentas)</li>
+                <li>Optimización de firmware y placas lógicas</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>GOODWE / GROWATT / SOLIS</h3>
+            <div class="stat-bar"><div class="stat-fill" style="width: 75%;"></div></div>
+            <ul class="error-list">
+                <li><span class="crit">ID01/02</span>: Fallo de red (Grid Fault)</li>
+                <li>Fallo en relés de salida AC</li>
+                <li>Averías por sobrecalentamiento excesivo</li>
+                <li>Sustitución de condensadores DC</li>
+            </ul>
+        </div>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Categoría del Equipo</th>
+                <th>Fallo Típico detectado</th>
+                <th>Tiempo de Proceso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Inversores Híbridos</td>
+                <td>Picos de tensión / Gestión de baterías</td>
+                <td>3-5 días laborales</td>
+            </tr>
+            <tr>
+                <td>Inversores de Red</td>
+                <td>Degradación de componentes / Humedad</td>
+                <td>2-4 días laborales</td>
+            </tr>
+            <tr>
+                <td>Cargadores de Vehículo Eléctrico</td>
+                <td>Fallo de comunicación / Placa control</td>
+                <td>5-7 días laborales</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="logistics">
+        <h3 style="color:var(--gold); margin-top:0;">Logística y Recogida Nacional</h3>
+        <p style="margin-bottom:0; font-size:14px;">Gestionamos la recogida de su inversor en cualquier punto de la Península a través de <strong>MRW, SEUR o GLS</strong>. Si su instalador habitual no encuentra solución, nuestro laboratorio especializado ofrece diagnóstico avanzado y recuperación de placas madre que otros consideran irreparables.</p>
+    </div>
+</div>
+
+<div class="cta-box">
+    <h2>¿SISTEMA SOLAR FUERA DE SERVICIO?</h2>
+    <p style="font-size: 18px; margin-bottom: 30px; font-weight: normal;">Envíe una foto del código de error directamente por WhatsApp para una evaluación previa.</p>
+    
+    <a href="https://wa.me/34600000000" class="btn-black">WHATSAPP: +34 600 000 000</a>
+    
+    <div style="margin-top: 40px; font-size: 14px;">
+        Email Técnico: <a href="mailto:m.paprocki@onet.eu" style="color:#000;">m.paprocki@onet.eu</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 FIXVOLT ESPAÑA • REPAIRING THE FUTURE OF ENERGY • MADRID - BARCELONA - VALENCIA
+</footer>
+
+</body>
+</html>
