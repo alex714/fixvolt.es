@@ -3,145 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Centro Nacional de Reparación de Inversores Solares</title>
-    <meta name="description" content="Servicio técnico especializado en electrónica de potencia. Reparación de Deye, Huawei, Turbo Energy, Fronius, Victron y más. Soporte técnico oficial en toda España.">
+    <title>FIXVOLT | Marbella - Wrocław | Engineering Power Electronics</title>
+    <meta name="description" content="Laboratorio internacional de electrónica de potencia. Reparación de inversores Deye, Huawei, Victron, FoxESS. Servicio técnico profesional en Marbella y toda España.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { --gold: #ffcc00; --bg: #050505; --card: #121212; --text: #f0f0f0; --dim: #888; --green: #25d366; }
+        :root { --gold: #ffcc00; --bg: #050505; --card: #121212; --text: #f0f0f0; --dim: #888; --green: #25d366; --safety: #ff4444; }
         body { background: var(--bg); color: var(--text); font-family: 'JetBrains Mono', monospace; margin: 0; line-height: 1.6; scroll-behavior: smooth; }
         
-        header { padding: 80px 20px; text-align: center; border-bottom: 2px solid var(--gold); background: radial-gradient(circle, #151515 0%, #050505 100%); }
-        .brand { font-size: clamp(40px, 10vw, 80px); font-weight: 900; letter-spacing: -4px; margin: 0; }
+        header { padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); background: radial-gradient(circle, #151515 0%, #050505 100%); }
+        .location-badge { font-size: 10px; letter-spacing: 3px; color: var(--dim); margin-bottom: 20px; text-transform: uppercase; }
+        .brand { font-size: clamp(40px, 10vw, 80px); font-weight: 900; letter-spacing: -4px; margin: 0; line-height: 1; }
         .brand span { color: var(--gold); }
-        .hero-sub { color: var(--gold); font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px; }
+        .hero-sub { color: var(--gold); font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-top: 15px; font-weight: bold; }
+        .international { font-size: 12px; color: var(--dim); margin-top: 10px; border: 1px solid #333; display: inline-block; padding: 4px 12px; border-radius: 20px; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
         /* СТАТИСТИКА */
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
-        .stat-item { background: #111; padding: 20px; border: 1px solid #222; text-align: center; }
+        .stat-item { background: #111; padding: 25px; border: 1px solid #222; text-align: center; transition: 0.3s; }
+        .stat-item:hover { background: #151515; border-color: var(--gold); }
         .stat-num { display: block; font-size: 32px; font-weight: 900; color: var(--gold); }
-        .stat-label { font-size: 12px; color: var(--dim); text-transform: uppercase; }
+        .stat-label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; }
 
         /* СЕТКА БРЕНДОВ */
-        .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--card); border: 1px solid #222; padding: 30px; position: relative; }
-        .card:hover { border-color: var(--gold); }
-        .card h3 { color: var(--gold); margin-top: 0; font-size: 18px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-        .tag { font-size: 10px; background: #222; padding: 3px 8px; color: #aaa; border: 1px solid #333; }
-
-        /* ФОРМА ЗАЯВКИ (ИНТЕРФЕЙС СЕРВИСА) */
-        .service-form { background: #111; padding: 40px; border: 1px solid var(--gold); margin: 60px 0; }
-        .service-form h2 { color: var(--gold); margin-top: 0; text-transform: uppercase; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        input, select, textarea { width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px; font-family: inherit; box-sizing: border-box; }
-        input:focus { border-color: var(--gold); outline: none; }
-        .submit-btn { background: var(--gold); color: #000; border: none; padding: 15px 30px; font-weight: 900; cursor: pointer; text-transform: uppercase; width: 100%; margin-top: 20px; }
-
-        /* SEO ТЕКСТ */
-        .seo-text { column-count: 2; column-gap: 40px; color: #aaa; font-size: 14px; margin: 60px 0; text-align: justify; }
-        @media (max-width: 768px) { .seo-text { column-count: 1; } .form-grid { grid-template-columns: 1fr; } }
-
-        /* CTA */
-        .final-cta { background: var(--gold); color: #000; padding: 80px 20px; text-align: center; }
-        .wa-huge { background: #000; color: var(--gold); padding: 25px 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 15px; font-size: 24px; font-weight: 900; margin-top: 20px; }
-
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--green); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.5); text-decoration: none; }
-    </style>
-</head>
-<body>
-
-<a href="https://wa.me/48512792248" class="wa-float"><i class="fab fa-whatsapp"></i></a>
-
-<header>
-    <h1 class="brand">FIX<span>VOLT</span></h1>
-    <div class="hero-sub">Ingeniería Avanzada en Electrónica de Potencia</div>
-</header>
-
-<div class="container">
-    <div class="stats-bar">
-        <div class="stat-item"><span class="stat-num">+1500</span><span class="stat-label">Equipos Reparados</span></div>
-        <div class="stat-item"><span class="stat-num">24/48h</span><span class="stat-label">Diagnóstico Express</span></div>
-        <div class="stat-item"><span class="stat-num">95%</span><span class="stat-label">Tasa de Éxito</span></div>
-        <div class="stat-item"><span class="stat-num">12 Meses</span><span class="stat-label">Garantía Técnica</span></div>
-    </div>
-
-    <div class="brand-grid">
-        <div class="card">
-            <h3>Sistemas Híbridos y LV</h3>
-            <p>Especialistas en inversores de baja tensión y gestión de baterías de litio.</p>
-            <div class="tag-list">
-                <span class="tag">DEYE</span><span class="tag">TURBO ENERGY</span><span class="tag">VICTRON</span><span class="tag">GOODWE</span>
-            </div>
-            <p style="font-size: 11px; color: #ff4444; margin-top: 15px;">Fallo común: Error F56, F13, Comunicación BMS.</p>
-        </div>
-        <div class="card">
-            <h3>Sistemas String e Industriales</h3>
-            <p>Soporte avanzado para plantas solares comerciales y residenciales de alta tensión.</p>
-            <div class="tag-list">
-                <span class="tag">HUAWEI</span><span class="tag">FRONIUS</span><span class="tag">KOSTAL</span><span class="tag">SMA</span><span class="tag">SOLIS</span>
-            </div>
-            <p style="font-size: 11px; color: #ff4444; margin-top: 15px;">Fallo común: Aislamiento ISO, Alarma 311, Unidad de Potencia.</p>
-        </div>
-        <div class="card">
-            <h3>Microinversores y Optimización</h3>
-            <p>Reparación de equipos modulares y sistemas de optimización de sombreado.</p>
-            <div class="tag-list">
-                <span class="tag">ENPHASE</span><span class="tag">APSISTEMS</span><span class="tag">HOYMILES</span><span class="tag">SOLAREDGE</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="service-form" id="ticket">
-        <h2>Abrir Ticket de Servicio Técnico</h2>
-        <p style="font-size: 12px; margin-bottom: 30px;">Complete los datos para generar un presupuesto preliminar y coordinar la recogida.</p>
-        <form action="mailto:m.paprocki@onet.eu" method="post" enctype="text/plain">
-            <div class="form-grid">
-                <input type="text" placeholder="Nombre completo" required>
-                <input type="text" placeholder="Teléfono de contacto" required>
-                <select required>
-                    <option value="">Marca del Inversor</option>
-                    <option value="huawei">Huawei</option>
-                    <option value="deye">Deye / Turbo Energy</option>
-                    <option value="victron">Victron Energy</option>
-                    <option value="fronius">Fronius</option>
-                    <option value="otro">Otras marcas</option>
-                </select>
-                <input type="text" placeholder="Modelo del equipo (ej: SUN2000-5KTL)">
-            </div>
-            <textarea rows="4" style="margin-top:20px;" placeholder="Descripción del error o código mostrado en pantalla"></textarea>
-            <button type="submit" class="submit-btn">Generar Solicitud de Reparación</button>
-        </form>
-    </div>
-
-    <div class="seo-text">
-        <p>En <strong>FIXVOLT España</strong>, nos consolidamos como el laboratorio líder en la recuperación de activos energéticos. La reparación de inversores solares no es solo un proceso mecánico, es una intervención de ingeniería de precisión. En un mercado saturado de opciones de "usar y tirar", nuestra filosofía se basa en la economía circular: recuperar la placa base original mediante la sustitución de semiconductores críticos.</p>
-        <p>Atendemos averías complejas en toda la geografía española, desde fallos catastróficos por sobretensiones atmosféricas hasta degradaciones térmicas en condensadores de bus DC. Nuestro laboratorio cuenta con trazadores de curvas, osciloscopios de alta frecuencia y bancos de prueba con carga real para asegurar que cada equipo Huawei, Deye o Victron regrese a su instalación con la máxima fiabilidad operativa.</p>
-    </div>
-</div>
-
-<div class="final-cta">
-    <div class="container">
-        <h2>¿Necesita asistencia inmediata?</h2>
-        <p>Hable con un ingeniero especializado ahora mismo.</p>
-        <a href="https://wa.me/48512792248" class="wa-huge">
-            <i class="fab fa-whatsapp"></i> WHATSAPP: +48 512 792 248
-        </a>
-        <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">LOGÍSTICA NACIONAL | MRW | SEUR | GLS</p>
-    </div>
-</div>
-
-<div style="background:#000; padding: 20px; text-align:center; font-size:10px; color:#333; letter-spacing: 2px;">
-    MADRID • BARCELONA • VALENCIA • SEVILLA • BILBAO • MÁLAGA • ZARAGOZA • ALICANTE • MURCIA
-</div>
-
-<footer>
-    <div style="padding: 40px; text-align: center; color: #444; font-size: 11px; border-top: 1px solid #111;">
-        FIXVOLT &copy; 2026 | Laboratorio de Electrónica de Potencia Aplicada
-    </div>
-</footer>
-
-</body>
-</html>
+        .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background
