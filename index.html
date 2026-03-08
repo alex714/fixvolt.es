@@ -1,35 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt | Ingeniería y Recambios Técnicos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixVolt Engineering | Soporte Técnico y Recambios UE</title>
     <style>
-        :root { --accent: #ff6b00; --dark: #0f172a; --gray: #f1f5f9; --white: #ffffff; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--gray); color: #334155; }
-        header { background: var(--dark); color: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
-        .logo { font-size: 24px; font-weight: 800; } .logo span { color: var(--accent); }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; }
-        .hero { background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('https://images.unsplash.com/photo-1558444479-c84825927d35?q=80&w=2000'); background-size: cover; color: white; padding: 100px 10%; text-align: center; }
-        .hero h1 { font-size: 42px; margin-bottom: 20px; }
-        .btn { background: var(--accent); color: white; padding: 18px 35px; border-radius: 12px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,107,0,0.3); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 60px 10%; }
-        .card { background: white; padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #e2e8f0; }
-        footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 30px; font-size: 14px; }
+        :root { --accent: #ff6b00; --dark: #0f172a; --white: #ffffff; --gray: #f1f5f9; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--gray); color: #334155; }
+        
+        /* Navigation */
+        nav { background: var(--dark); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent); }
+        .logo { color: white; font-size: 26px; font-weight: 800; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; text-transform: uppercase; }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2000'); background-size: cover; background-position: center; color: white; padding: 100px 5%; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 20px; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
+        .btn-main { background: var(--accent); color: white; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 10px 20px rgba(255,107,0,0.3); }
+        .btn-main:hover { transform: translateY(-3px); background: #e66000; }
+
+        /* Showcase Grid */
+        .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--accent); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--dark); font-size: 22px; margin-bottom: 15px; }
+        .card p { font-size: 15px; color: #64748b; line-height: 1.6; }
+
+        /* Logistics Block */
+        .logistics { background: white; margin: 40px 5%; padding: 50px; border-radius: 30px; display: flex; align-items: center; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 40px auto; }
+        .logistics-text { flex: 1; min-width: 300px; }
+        .logistics-text h2 { color: var(--dark); font-size: 32px; }
+        .poland-flag { background: #dc2626; color: white; padding: 5px 15px; border-radius: 5px; font-weight: bold; margin-bottom: 15px; display: inline-block; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #94a3b8; padding: 60px 5%; text-align: center; font-size: 14px; }
+        .contact-footer { color: white; font-size: 20px; margin-bottom: 20px; display: block; text-decoration: none; }
     </style>
 </head>
 <body>
-    <header><div class="logo">FIX<span>VOLT</span></div><nav><a href="/">Inicio</a><a href="/contact.html">Contacto</a></nav></header>
-    <section class="hero">
-        <h1>Soporte Técnico Especializado</h1>
-        <p>Expertos en Inversores Solares y Vehículos MG, Omoda, BYD. Logística directa desde Polonia para toda España.</p>
-        <a href="/contact.html" class="btn">Consultar con Ingeniero</a>
-    </section>
-    <section class="grid">
-        <div class="card"><h3>☀️ Energía Solar</h3><p>Reparación y recambios para Huawei, Solis, Deye, Growatt y Victron.</p></div>
-        <div class="card"><h3>🚗 Automoción</h3><p>Diagnóstico avanzado, firmware y piezas para MG Motor, Omoda y Tesla.</p></div>
-        <div class="card"><h3>📦 Almacén EU</h3><p>Stock real en nuestro Hub de Polonia. Envíos urgentes de módulos y sensores.</p></div>
-    </section>
-    <footer>FixVolt.es &copy; 2026 | Ingeniería y Logística UE</footer>
+
+<nav>
+    <a href="/" class="logo">FIX<span>VOLT</span></a>
+    <div>
+        <a href="/404.html">Base de Errores</a>
+        <a href="https://wa.me/48512792481">Contacto</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Soluciones de Ingeniería donde otros fallan</h1>
+    <p>Especialistas en Inversores Fotovoltaicos y Vehículos de Nueva Generación. Soporte técnico avanzado y logística desde nuestro Hub central en Polonia.</p>
+    <a href="https://wa.me/48512792481" class="btn-main">Soporte Urgente WhatsApp</a>
+</section>
+
+<section class="showcase">
+    <div class="card">
+        <h3>☀️ Solar & Storage</h3>
+        <p>Diagnóstico de errores críticos en Huawei, Solis, Fronius y Growatt. Expertos en comunicación de baterías de litio y balanceo de celdas LiFePO4.</p>
+    </div>
+    <div class="card">
+        <h3>🚗 Automoción China/EV</h3>
+        <p>Actualización de firmware para MG Motor y Omoda. Recambios originales y soluciones de software para Tesla, Zeekr y BYD.</p>
+    </div>
+    <div class="card">
+        <h3>🚛 Sistemas Industriales</h3>
+        <p>Soluciones para sistemas AdBlue (SCR) en camiones y flotas. Limpieza técnica de inyectores y reset de contadores de bloqueo.</p>
+    </div>
+</section>
+
+<div class="logistics">
+    <div class="logistics-text">
+        <div class="poland-flag">HUB LOGÍSTICO POLONIA</div>
+        <h2>Envíos Express a toda España</h2>
+        <p>Ubicados estratégicamente en Polonia, gestionamos recambios electrónicos, centralitas (ECU) и componentes mecánicos que no tienen stock en los concesionarios locales de España.</p>
+        <p><b>Tiempo de entrega estimado: 3-5 días laborales.</b></p>
+    </div>
+</div>
+
+<footer>
+    <a href="https://wa.me/48512792481" class="contact-footer">WhatsApp: +48 512 792 481</a>
+    <p>FixVolt.es | Ingeniería de Diagnóstico y Recambios | Almacén Central: Polonia</p>
+    <p>&copy; 2026 Reservados todos los derechos técnicos.</p>
+</footer>
+
 </body>
 </html>
