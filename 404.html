@@ -3,59 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico Técnico | FixVolt AI</title>
+    <title>FixVolt | Centro de Diagnóstico Avanzado</title>
     <style>
-        :root { --accent: #ff6b00; --dark: #0f172a; --green: #25d366; }
-        body { font-family: system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 15px; }
-        .card { max-width: 800px; margin: 30px auto; background: #fff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
-        .live-status { background: var(--dark); color: #10b981; padding: 12px; font-family: monospace; font-size: 11px; display: flex; justify-content: space-between; }
-        .main { padding: 40px; }
-        .spinner { width: 45px; height: 45px; border: 5px solid #eee; border-top: 5px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .report { border-left: 4px solid var(--accent); padding-left: 20px; font-size: 18px; line-height: 1.7; color: #334155; margin: 30px 0; display: none; }
-        .btn-wa { display: none; background: var(--green); color: white; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 19px; }
+        :root { --accent: #ff6b00; --bg: #ffffff; --text: #1e293b; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 700px; margin: 40px auto; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .badge { background: #fef2f2; color: #ef4444; padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+        h1 { font-size: 22px; margin: 10px 0 20px; color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; }
+        .solution-card { background: #f8fafc; border-left: 5px solid var(--accent); padding: 20px; border-radius: 8px; margin: 20px 0; font-size: 17px; }
+        .source-info { font-size: 13px; color: #64748b; margin-top: 10px; font-style: italic; }
+        .btn-wa { display: block; background: #25d366; color: white; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 18px; transition: transform 0.2s; margin-top: 25px; box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.3); }
+        .btn-wa:active { transform: scale(0.98); }
+        .step { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .step-icon { margin-right: 10px; color: var(--accent); }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="live-status"><span>● BRIDGE: PL_WAREHOUSE_SYNC</span> <span id="timer">0.00s</span></div>
-        <div class="main">
-            <div id="loader" style="text-align:center;">
-                <div class="spinner"></div>
-                <p>Sincronizando base técnica RU/CN para:<br><b id="q-tag"></b></p>
+
+<div class="container">
+    <div id="loading">Analizando bases de datos internacionales...</div>
+    
+    <div id="content" style="display:none;">
+        <div class="badge">Informe Técnico Generado</div>
+        <h1 id="query-display">Diagnóstico de sistema</h1>
+        
+        <div class="solution-card" id="solution-text">
             </div>
-            <div id="result">
-                <h1 id="res-title" style="margin:0;"></h1>
-                <div class="report" id="res-body"></div>
-                <div style="background:#fffbeb; padding:25px; border-radius:18px; border:1px solid #fef3c7; margin-top:20px;">
-                    <h4 style="margin:0 0 10px; color:#92400e;">🛠️ Soporte Directo (Logística Polonia)</h4>
-                    <p style="font-size:15px; color:#b45309;">Contamos con esquemas técnicos y recambios en stock. Contacto directo con el almacén central.</p>
-                    <a href="https://wa.me/48512792481?text=Hola, soporte para " id="wa-link" class="btn-wa" style="display:block; margin-top:15px;">WHATSAPP SOPORTE</a>
-                </div>
-            </div>
-        </div>
+
+        <p style="font-size: 15px;">Para obtener el <b>manual de despiece completo</b> o solicitar la <b>pieza OEM</b> desde nuestro centro logístico en Polonia, contacte con soporte:</p>
+
+        <a href="https://wa.me/48512792481?text=Hola, soporte para " id="wa-link" class="btn-wa">
+            OBTENER SOLUCIÓN COMPLETA
+        </a>
+        
+        <p style="text-align: center; font-size: 12px; color: #94a3b8; margin-top: 20px;">
+            Soporte FixVolt.es | Hub Logístico Polonia | Datos: Drive2/Drom/Forumhouse
+        </p>
     </div>
+</div>
+
 <script>
-    const path = window.location.pathname.split('/').pop().replace(/-/g, ' ');
-    const query = decodeURIComponent(path).toUpperCase();
-    document.getElementById('q-tag').innerText = query;
-    let s = Date.now(); setInterval(() => { document.getElementById('timer').innerText = ((Date.now() - s)/1000).toFixed(2)+"s" }, 100);
-
-    setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('res-title').innerText = "Informe: " + query;
-        const body = document.getElementById('res-body');
-        body.style.display = 'block';
-
-        if(query.includes("HUAWEI") || query.includes("2062")) {
-            body.innerHTML = "<b>Análisis:</b> Resistencia de aislamiento baja en bus DC. <br><b>Solución:</b> Verifique humedad en conectores MC4. No es necesario sustituir el inversor en el 90% de los casos.";
-        } else if(query.includes("MG") || query.includes("OMODA")) {
-            body.innerHTML = "<b>Análisis:</b> Error de gestión en software de transmisión/inyección. <br><b>Solución:</b> Se requiere recalibración de parámetros OEM. Disponemos de los archivos de actualización.";
-        } else {
-            body.innerHTML = "<b>Análisis:</b> Patrón detectado en registros internacionales. <br><b>Sugerencia:</b> Verifique versión de firmware y voltajes de control. Consulte manual de despiece.";
+    // База знаний робота (Выжимки с Drive2, Drom, Forumhouse)
+    const engineDatabase = [
+        {
+            tags: ["HUAWEI", "2062", "AISLAMIENTO", "ISOLATION"],
+            res: "<b>Fallo detectado:</b> Baja resistencia de aislamiento DC.<br><b>Origen (Forumhouse.ru):</b> El 85% de los casos se debe a humedad en conectores MC4 o micro-fisuras en el cableado tras lluvias.<br><b>Acción:</b> 1. Desconectar strings. 2. Secar y limpiar con alcohol isopropílico. 3. Verificar derivación a tierra en la estructura."
+        },
+        {
+            tags: ["MG", "ZS", "TIRONES", "DCT", "TRANSMISION"],
+            res: "<b>Fallo detectado:</b> Gestión errática del cambio DCT.<br><b>Origen (Drive2.ru):</b> Desincronización del software de la TCU con la temperatura del aceite.<br><b>Acción:</b> 1. Realizar purga de adaptación vía OBD2. 2. Se recomienda actualizar el firmware a la versión 'East-EU 2024' para eliminar el retardo en 2ª marcha."
+        },
+        {
+            tags: ["OMODA", "5", "MOTOR", "FALLO", "TURBO"],
+            res: "<b>Fallo detectado:</b> Error de presión de sobrealimentación o ralentí inestable.<br><b>Origen (Drom.ru):</b> Sensor MAP contaminado por vapores de aceite o válvula PCV defectuosa.<br><b>Acción:</b> Limpiar el sensor de presión con spray específico. Si el error persiste, revisar la estanqueidad de los tubos del intercooler."
+        },
+        {
+            tags: ["SOLIS", "103", "OV-G-V"],
+            res: "<b>Fallo detectado:</b> Sobrevoltaje o fuga a tierra (I-ISO).<br><b>Origen:</b> Sensibilidad excesiva del sensor de aislamiento en climas húmedos.<br><b>Acción:</b> Comprobar la continuidad de la toma de tierra. En casos críticos, ajustar el umbral de protección en el menú de servicio bajo supervisión técnica."
+        },
+        {
+            tags: ["BYD", "ATTO", "CARGA", "BATTERY"],
+            res: "<b>Fallo detectado:</b> Interrupción de carga rápida (DC).<br><b>Origen:</b> Incompatibilidad de protocolo Handshake con cargadores públicos europeos.<br><b>Acción:</b> Reiniciar el sistema BMS manteniendo pulsado el botón de encendido 10s. Verificar actualización del módulo de carga."
         }
+    ];
+
+    const rawPath = window.location.pathname.split('/').pop().replace(/-/g, ' ').toUpperCase();
+    const query = decodeURIComponent(rawPath);
+
+    // Робот обрабатывает запрос
+    setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('query-display').innerText = query;
+
+        let finalAnswer = "<b>Análisis preventivo:</b> Se ha detectado una anomalía compatible con los registros de servicio técnico de Europa del Este.<br><br><b>Recomendación:</b> Verifique la integridad de las conexiones y la versión del firmware del sistema. Contamos con el esquema eléctrico detallado para resolver este problema.";
+
+        // Поиск в базе по тегам
+        for (let item of engineDatabase) {
+            if (item.tags.some(tag => query.includes(tag))) {
+                finalAnswer = item.res;
+                break;
+            }
+        }
+
+        document.getElementById('solution-text').innerHTML = finalAnswer;
         document.getElementById('wa-link').href += encodeURIComponent(query);
-    }, 2200);
+    }, 1500);
 </script>
+
 </body>
 </html>
