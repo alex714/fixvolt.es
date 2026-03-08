@@ -1,71 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enciclopedia Técnica de Errores y Soluciones | FixVolt Engineering</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Errores Técnicos | FixVolt Engineering</title>
     <style>
-        :root { --accent: #ff6b00; --dark: #0f172a; --gray: #f8fafc; --white: #ffffff; }
+        :root { --accent: #ff6b00; --dark: #0f172a; --gray: #f8fafc; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--gray); color: #334155; line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 50px 20px; text-align: center; border-bottom: 6px solid var(--accent); }
-        .logo { font-size: 36px; font-weight: 800; } .logo span { color: var(--accent); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        
-        .intro-box { background: white; padding: 35px; border-radius: 20px; margin-bottom: 50px; border-left: 8px solid var(--accent); box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        
-        .cat-tag { background: var(--dark); color: white; padding: 8px 15px; border-radius: 5px; font-size: 14px; margin-top: 40px; display: inline-block; font-weight: bold; }
-        
-        .error-entry { background: white; padding: 30px; border-radius: 18px; margin: 25px 0; border: 1px solid #e2e8f0; transition: 0.3s; }
-        .error-entry:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.07); }
-        .error-entry h3 { margin: 10px 0; color: var(--dark); font-size: 22px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        
-        .label { color: var(--accent); font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-        .tech-detail { background: #f1f5f9; padding: 15px; border-radius: 12px; margin-top: 15px; font-size: 15px; border-left: 4px solid #cbd5e1; }
-        
-        .whatsapp-float { position: sticky; bottom: 30px; background: #25d366; color: white; padding: 20px 40px; border-radius: 50px; text-align: center; text-decoration: none; font-weight: bold; font-size: 20px; display: block; max-width: 450px; margin: 50px auto; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4); z-index: 100; transition: 0.4s; }
-        .whatsapp-float:hover { transform: scale(1.05); background: #1faf51; }
-
-        footer { text-align: center; padding: 60px; color: #94a3b8; font-size: 14px; background: #f1f5f9; }
+        header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid var(--accent); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .cat { background: var(--dark); color: white; padding: 8px 15px; border-radius: 5px; display: inline-block; font-weight: bold; margin-top: 30px; }
+        .error-entry { background: white; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e2e8f0; }
+        .error-entry h3 { margin-top: 0; color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        .solution { background: #f1f5f9; padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid var(--accent); }
+        .whatsapp-btn { position: sticky; bottom: 20px; background: #25d366; color: white; padding: 20px; border-radius: 50px; text-align: center; text-decoration: none; font-weight: bold; display: block; max-width: 400px; margin: 40px auto; box-shadow: 0 10px 25px rgba(37,211,102,0.4); }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="logo">FIX<span>VOLT</span> ENGINEERING</div>
-    <p>Base de Datos de Ingeniería RU/PL/ES | Soluciones de Software y Recambios</p>
-</header>
-
+<header><h2>FIX<span>VOLT</span> TECHNICAL LIBRARY</h2><p>Soporte Polonia: +48 512 792 248</p></header>
 <div class="container">
-    <div class="intro-box">
-        <h2>Manual de Servicio y Diagnóstico (Acceso Público)</h2>
-        <p>Documentación técnica recopilada por nuestro equipo de ingeniería en Polonia. Analizamos fallos críticos reportados en foros de expertos (Drive2, Drom, Forumhouse) para ofrecer soluciones eficaces fuera del canal oficial de concesionarios.</p>
-    </div>
+    <div class="cat">SOLAR ENERGY</div>
+    <div class="error-entry"><h3>Huawei SUN2000 - Error 2062</h3><p>Baja resistencia de aislamiento DC. Humedad en conectores MC4.</p><div class="solution"><b>Solución:</b> Limpieza dieléctrica y sellado. Recambios disponibles en Polonia.</div></div>
+    <div class="error-entry"><h3>Solis / Deye - Error 103 / I-ISO</h3><p>Falla de aislamiento a tierra. Común tras lluvias persistentes.</p><div class="solution"><b>Solución:</b> Ajuste de sensibilidad y purga de strings. Soporte remoto disponible.</div></div>
+    <div class="error-entry"><h3>Fronius - State 475</h3><p>Aislamiento defectuoso o fallo de varistor de protección.</p><div class="solution"><b>Solución:</b> Sustitución de módulos de protección y reset de placa.</div></div>
+    <div class="error-entry"><h3>Growatt - Error 122</h3><p>Sobretensión AC en la red. Desconexión por seguridad.</p><div class="solution"><b>Solución:</b> Reprogramación de límites de voltaje según normativa local.</div></div>
 
-    <div class="cat-tag">SOLAR & ENERGY STORAGE</div>
+    <div class="cat">AUTOMOCIÓN EV/DCT</div>
+    <div class="error-entry"><h3>MG ZS/HS - Tirones DCT</h3><p>Sacudidas en cambios bajos. Problema de gestión TCU de fábrica.</p><div class="solution"><b>Solución:</b> Actualización a firmware optimizado 2024. Calibración electrónica.</div></div>
+    <div class="error-entry"><h3>Tesla Model 3/Y - Crujidos</h3><p>Ruidos en suspensión delantera. Rótulas superiores sin lubricación.</p><div class="solution"><b>Solución:</b> Sustitución por brazos reforzados Meyer (Stock PL).</div></div>
+    <div class="error-entry"><h3>BYD Atto 3 - Error Carga DC</h3><p>Fallo de comunicación Handshake con cargadores CCS2.</p><div class="solution"><b>Solución:</b> Reset de BMS y actualización de protocolo de carga.</div></div>
+    <div class="error-entry"><h3>Zeekr 001 - Bloqueo OTA</h3><p>Servicios offline en unidades de importación.</p><div class="solution"><b>Solución:</b> Configuración VPN y desbloqueo de software para EU.</div></div>
 
-    <article class="error-entry">
-        <span class="label">Huawei SUN2000</span>
-        <h3>Error 2062: Low Insulation Resistance</h3>
-        <p>Fallo crítico de aislamiento en el lado DC. Generalmente causado por humedad en conectores MC4 o microfisuras en el aislante del cableado.</p>
-        <div class="tech-detail"><b>Solución:</b> Limpieza criogénica o dieléctrica de conectores. Suministramos conectores originales con sellado reforzado desde Polonia.</div>
-    </article>
+    <div class="cat">TRUCKS & ADBLUE</div>
+    <div class="error-entry"><h3>Sistemas SCR - Fallo AdBlue</h3><p>Bloqueo de motor inminente por cristalización de urea.</p><div class="solution"><b>Solución:</b> Limpieza ultrasónica de inyectores y reset de contadores SCR.</div></div>
 
-    <article class="error-entry">
-        <span class="label">Solis / Deye</span>
-        <h3>Error 103 (I-ISO) / Leakage Current</h3>
-        <p>Corrientes de fuga detectadas por el inversor. Común en instalaciones con paneles de vidrio simple tras lluvias intensas.</p>
-        <div class="tech-detail"><b>Solución:</b> Ajuste de parámetros de sensibilidad vía software y revisión de la puesta a tierra de la estructura.</div>
-    </article>
-
-    <article class="error-entry">
-        <span class="label">Fronius Primo / Symo</span>
-        <h3>State 475: Insulation Fault</h3>
-        <p>El inversor detecta una derivación a tierra. A menudo es un falso positivo por saturación del varistor de protección.</p>
-        <div class="tech-detail"><b>Solución:</b> Sustitución de módulos de protección contra sobretensiones y reset del log de errores interno.</div>
-    </article>
-
-    <article class="error-entry">
-        <span class="label">Growatt Inverters</span>
-        <h3>Error 122: AC Overvoltage</h3>
-        <p>Tensión de red fuera de rango. Muy frecuente en zonas rurales de España con redes inestables.</p>
-        <div class="tech
+    <a href="https://wa.me/48512792248" class="whatsapp-btn">SOPORTE TÉCNICO: +48 512 792 248</a>
+</div>
+</body>
+</html>
