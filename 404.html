@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Técnico | FixVolt AI</title>
+    <style>
+        :root { --accent: #ff6b00; --dark: #0f172a; --green: #25d366; }
+        body { font-family: system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 15px; }
+        .card { max-width: 800px; margin: 30px auto; background: #fff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .live-status { background: var(--dark); color: #10b981; padding: 12px; font-family: monospace; font-size: 11px; display: flex; justify-content: space-between; }
+        .main { padding: 40px; }
+        .spinner { width: 45px; height: 45px; border: 5px solid #eee; border-top: 5px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .report { border-left: 4px solid var(--accent); padding-left: 20px; font-size: 18px; line-height: 1.7; color: #334155; margin: 30px 0; display: none; }
+        .btn-wa { display: none; background: var(--green); color: white; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 19px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="live-status"><span>● BRIDGE: PL_WAREHOUSE_SYNC</span> <span id="timer">0.00s</span></div>
+        <div class="main">
+            <div id="loader" style="text-align:center;">
+                <div class="spinner"></div>
+                <p>Sincronizando base técnica RU/CN para:<br><b id="q-tag"></b></p>
+            </div>
+            <div id="result">
+                <h1 id="res-title" style="margin:0;"></h1>
+                <div class="report" id="res-body"></div>
+                <div style="background:#fffbeb; padding:25px; border-radius:18px; border:1px solid #fef3c7; margin-top:20px;">
+                    <h4 style="margin:0 0 10px; color:#92400e;">🛠️ Soporte Directo (Logística Polonia)</h4>
+                    <p style="font-size:15px; color:#b45309;">Contamos con esquemas técnicos y recambios en stock. Contacto directo con el almacén central.</p>
+                    <a href="https://wa.me/48512792481?text=Hola, soporte para " id="wa-link" class="btn-wa" style="display:block; margin-top:15px;">WHATSAPP SOPORTE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    const path = window.location.pathname.split('/').pop().replace(/-/g, ' ');
+    const query = decodeURIComponent(path).toUpperCase();
+    document.getElementById('q-tag').innerText = query;
+    let s = Date.now(); setInterval(() => { document.getElementById('timer').innerText = ((Date.now() - s)/1000).toFixed(2)+"s" }, 100);
+
+    setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('res-title').innerText = "Informe: " + query;
+        const body = document.getElementById('res-body');
+        body.style.display = 'block';
+
+        if(query.includes("HUAWEI") || query.includes("2062")) {
+            body.innerHTML = "<b>Análisis:</b> Resistencia de aislamiento baja en bus DC. <br><b>Solución:</b> Verifique humedad en conectores MC4. No es necesario sustituir el inversor en el 90% de los casos.";
+        } else if(query.includes("MG") || query.includes("OMODA")) {
+            body.innerHTML = "<b>Análisis:</b> Error de gestión en software de transmisión/inyección. <br><b>Solución:</b> Se requiere recalibración de parámetros OEM. Disponemos de los archivos de actualización.";
+        } else {
+            body.innerHTML = "<b>Análisis:</b> Patrón detectado en registros internacionales. <br><b>Sugerencia:</b> Verifique versión de firmware y voltajes de control. Consulte manual de despiece.";
+        }
+        document.getElementById('wa-link').href += encodeURIComponent(query);
+    }, 2200);
+</script>
+</body>
+</html>
