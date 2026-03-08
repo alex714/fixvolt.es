@@ -3,144 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt Engineering | Premium Technical Support & Logistics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>FixVolt Engineering | Centro Técnico Polonia</title>
     <style>
-        :root { 
-            --accent: #ff6b00; 
-            --accent-glow: rgba(255, 107, 0, 0.35);
-            --bg: #030712; 
-            --card-bg: rgba(17, 24, 39, 0.7);
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-        }
-
+        /* Используем системные шрифты, чтобы не ждать загрузки Google Fonts */
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
             margin: 0; 
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Анимированный фон (сетка инженера) */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
+            padding: 0; 
+            background-color: #0f172a; 
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Навигация */
         nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 20px 8%; 
-            background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky; top: 0; z-index: 1000;
+            background: #000000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #ff6b00;
         }
+        .logo { font-size: 22px; font-weight: 900; color: #fff; text-decoration: none; text-transform: uppercase; }
+        .logo span { color: #ff6b00; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-left: 15px; }
 
-        .logo { font-size: 22px; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { color: var(--accent); }
-
-        .nav-links a { 
-            color: var(--text-dim); text-decoration: none; font-weight: 600; font-size: 13px; 
-            margin-left: 25px; transition: 0.3s; text-transform: uppercase;
-        }
-        .nav-links a:hover { color: var(--accent); }
-
-        /* Hero-блок */
+        /* Главный баннер */
         .hero { 
-            padding: 140px 8% 100px; 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
             text-align: center;
-            position: relative;
         }
-
-        .hero-badge {
-            background: rgba(255, 107, 0, 0.1);
-            color: var(--accent);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid var(--accent);
-            display: inline-block;
-            margin-bottom: 25px;
-        }
-
-        h1 { 
-            font-size: clamp(40px, 6vw, 72px); 
-            font-weight: 800; 
-            margin: 0 0 25px; 
-            line-height: 1.05;
-            letter-spacing: -2px;
-        }
-
-        .hero p { 
-            font-size: clamp(18px, 2vw, 22px); 
-            color: var(--text-dim); 
-            max-width: 800px; 
-            margin: 0 auto 50px; 
-        }
-
-        .btn-primary { 
-            background: var(--accent); 
-            color: white; 
-            padding: 22px 50px; 
-            border-radius: 14px; 
+        h1 { font-size: 38px; font-weight: 900; margin: 0 0 15px; line-height: 1.1; text-transform: uppercase; }
+        .hero p { font-size: 18px; color: #cbd5e1; max-width: 600px; margin: 0 auto 30px; }
+        
+        /* Кнопка WhatsApp */
+        .btn { 
+            background: #ff6b00; 
+            color: #fff; 
+            padding: 20px 40px; 
+            border-radius: 12px; 
             text-decoration: none; 
-            font-weight: 800; 
+            font-weight: 900; 
             font-size: 18px; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
-            box-shadow: 0 15px 35px var(--accent-glow);
-        }
-        .btn-primary:hover { 
-            transform: scale(1.05) translateY(-5px); 
-            box-shadow: 0 20px 45px var(--accent-glow);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
         }
 
-        /* Сетка сервисов */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-            padding: 60px 8%; 
-            max-width: 1300px; 
-            margin: 0 auto; 
-        }
-
+        /* Карточки услуг */
+        .grid { padding: 40px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card { 
-            background: var(--card-bg); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 50px; 
-            border-radius: 30px; 
-            transition: 0.4s;
-            backdrop-filter: blur(5px);
+            background: #1e293b; 
+            padding: 30px; 
+            border-radius: 20px; 
+            border-bottom: 4px solid #ff6b00;
         }
-        .card:hover { 
-            border-color: var(--accent);
-            background: rgba(17, 24, 39, 0.9);
-            transform: translateY(-10px);
+        .card h3 { color: #ff6b00; margin: 0 0 15px; font-size: 24px; text-transform: uppercase; }
+        .card p { color: #94a3b8; font-size: 16px; margin: 0; line-height: 1.6; }
+
+        /* Блок про Польшу (Контрастный) */
+        .hub {
+            background: #ffffff;
+            color: #0f172a;
+            margin: 20px;
+            padding: 40px 20px;
+            border-radius: 25px;
+            text-align: center;
         }
+        .hub h2 { font-size: 28px; font-weight: 900; margin: 0 0 10px; }
+        .badge { background: #e11d48; color: #fff; padding: 5px 15px; border-radius: 8px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
 
-        .card h3 { font-size: 26px; margin-bottom: 20px; color: var(--accent); }
-        .card p { color: var(--text-dim); font-size: 16px; margin-bottom: 0; }
+        /* Футер */
+        footer { padding: 60px 20px; text-align: center; background: #000; border-top: 1px solid #334155; }
+        .wa-footer { color: #fff; text-decoration: none; font-size: 24px; font-weight: 900; display: block; }
+        .wa-footer span { color: #22c55e; }
+    </style>
+</head>
+<body>
 
-        /* Инженерный блок */
-        .hub-section { 
-            margin: 100px 8%; 
-            background: linear-gradient(145deg, #111827, #030712);
-            border-radius: 40px;
-            padding: 80px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+<nav>
+    <a href="/" class="logo">FIX<span>VOLT</span></a>
+    <div class="nav-links">
+        <a href="/404.html">Errores</a>
+        <a href="https://wa.me/48512792248">WhatsApp</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Ingeniería <br>Diagnóstica</h1>
+    <p>Soporte técnico avanzado y logística de recambios desde Polonia para toda España.</p>
+    <a href="https://wa.me/48512792248" class="btn">WhatsApp: +48 512 792 248</a>
+</section>
+
+<section class="grid">
+    <div class="card">
+        <h3>Solar</h3>
+        <p>Expertos en Huawei, Solis и Deye. Gestión de baterías LiFePO4 и balanceo de celdas.</p>
+    </div>
+    <div class="card">
+        <h3>Automoción</h3>
+        <p>Firmware и recambios para MG Motor, Omoda, BYD и Tesla. Soluciones DCT.</p>
+    </div>
+    <div class="card">
+        <h3>Industrial</h3>
+        <p>Diagnóstico de sistemas AdBlue (SCR) и desbloqueo de motor para flotas.</p>
+    </div>
+</section>
+
+<div class="hub">
+    <div class="badge">HUB CENTRAL POLONIA</div>
+    <h2>Logística Express</h2>
+    <p>Enviamos componentes electrónicos críticos a cualquier punto de España en 3-5 días.</p>
+</div>
+
+<footer>
+    <a href="https://wa.me/48512792248" class="wa-footer"><span>WA:</span> +48 512 792 248</a>
+    <p style="color: #64748b; margin-top: 20px; font-size: 12px;">FixVolt.es | Ingeniería y Recambios | 2026</p>
+</footer>
+
+</body>
+</html>
