@@ -3,139 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt Marbella | Reparación de Inversores Solares</title>
+    <title>FixVolt | Ingeniería Fotovoltaica y Automoción China</title>
     <style>
-        :root { --gold: #ffcc00; --bg: #050505; --accent: #121212; --text: #f0f0f0; }
-        * { box-sizing: border-box; }
-        body { font-family: 'JetBrains Mono', monospace; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
-        
-        header { padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); }
-        .brand { font-size: 42px; font-weight: 900; margin: 0; text-transform: uppercase; letter-spacing: -1px; }
-        .brand span { color: var(--gold); }
-        .tagline { color: var(--gold); font-size: 13px; letter-spacing: 2px; border: 1px solid var(--gold); padding: 5px 15px; display: inline-block; margin-top: 10px; font-weight: bold; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-            margin-bottom: 40px;
-        }
-        
-        .card { 
-            background: var(--accent); 
-            padding: 25px; 
-            border-left: 3px solid #333; 
-            transition: 0.3s;
-        }
-        .card:hover { border-left-color: var(--gold); background: #0a0a0a; }
-        .card h3 { color: var(--gold); margin: 0 0 10px 0; font-size: 18px; text-transform: uppercase; }
-        .card p { font-size: 14px; margin: 0; color: #ccc; }
-        .eng-sub { font-size: 11px; color: #666; font-style: italic; margin-top: 5px; display: block; }
-
-        .cta-section { 
-            background: var(--gold); 
-            color: #000; 
-            padding: 50px 20px; 
-            text-align: center; 
-            margin: 20px 0;
-        }
-        .cta-section h2 { text-transform: uppercase; margin: 0; font-size: 24px; }
-        
-        .wa-btn { 
-            background: #000; 
-            color: var(--gold); 
-            padding: 20px 40px; 
-            text-decoration: none; 
-            font-weight: 900; 
-            display: inline-block; 
-            margin-top: 25px;
-            font-size: 20px;
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
-        }
-
-        footer { 
-            padding: 50px 20px; 
-            background: #000; 
-            border-top: 1px solid #222; 
-            text-align: center;
-        }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 30px; 
-            text-align: left; 
-            max-width: 1000px; 
-            margin: 0 auto;
-        }
-        .footer-item h4 { color: var(--gold); margin: 0 0 15px 0; text-transform: uppercase; font-size: 14px; }
-        .footer-item p { font-size: 12px; color: #888; margin: 5px 0; }
+        :root { --primary: #ff6b00; --dark: #0f172a; --gray: #64748b; }
+        body { font-family: 'Inter', system-ui, sans-serif; margin: 0; background: #0f172a; color: white; overflow-x: hidden; }
+        .bg-glow { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%); z-index: -1; }
+        header { padding: 40px 20px; text-align: center; }
+        .logo { font-size: 48px; font-weight: 900; letter-spacing: -2px; margin: 0; }
+        .logo span { color: var(--primary); }
+        .hero { max-width: 1000px; margin: 60px auto; text-align: center; padding: 0 20px; }
+        .hero h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.1; margin-bottom: 20px; }
+        .hero p { color: var(--gray); font-size: 18px; max-width: 600px; margin: 0 auto 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; }
+        .card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 32px; text-decoration: none; color: white; transition: 0.4s; }
+        .card:hover { background: rgba(255, 255, 255, 0.07); border-color: var(--primary); transform: translateY(-10px); }
+        .card h3 { font-size: 24px; margin-bottom: 15px; color: var(--primary); }
+        .brand-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; font-weight: 900; font-size: 20px; color: #475569; margin: 40px 0; opacity: 0.6; }
     </style>
 </head>
 <body>
-
-    <header>
-        <p style="font-size: 10px; letter-spacing: 5px; opacity: 0.5;">MARBELLA • COSTA DEL SOL • TODA ESPAÑA</p>
-        <h1 class="brand">FIX<span>VOLT</span></h1>
-        <div class="tagline">Ingeniería en Electrónica de Potencia</div>
-    </header>
-
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <h3>Component Repair</h3>
-                <p>Reparación de placas base y MOSFETs a nivel de componentes.</p>
-                <span class="eng-sub">Mainboard and semiconductor repair for PV inverters.</span>
-            </div>
-            <div class="card">
-                <h3>Deye Experts</h3>
-                <p>Solución a errores críticos F56 (DC Bus High) и F13 (Overcurrent).</p>
-                <span class="eng-sub">Specialized diagnostics for Deye and Turbo Energy hybrid systems.</span>
-            </div>
-            <div class="card">
-                <h3>Thermal Stress Fix</h3>
-                <p>Protección contra el calor extremo de Andalucía y optimización térmica.</p>
-                <span class="eng-sub">Advanced cooling solutions for high-temperature regions.</span>
-            </div>
-            <div class="card">
-                <h3>National Logistics</h3>
-                <p>Recogida en toda España con MRW, SEUR o GLS. Diagnóstico en 48h.</p>
-                <span class="eng-sub">Pickup service across Spain. Express 48h diagnostics.</span>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2>¿Problemas con su inversor?</h2>
-            <p style="margin: 10px 0; font-weight: bold;">Hable directamente con nuestro ingeniero vía WhatsApp:</p>
-            
-            <a href="https://wa.me/48512792248" class="wa-btn">WHATSAPP: +48 512 792 248</a>
-            
-            <p style="margin-top: 20px; font-size: 11px; font-weight: bold; text-transform: uppercase;">Servicio profesional para Victron, Deye, Huawei и FoxESS.</p>
-        </div>
+    <div class="bg-glow"></div>
+    <header><h1 class="logo">FIX<span>VOLT</span></h1></header>
+    <div class="hero">
+        <h2>Ingeniería experta para la nueva era tecnológica.</h2>
+        <p>Hub internacional de diagnóstico avanzado y recambios OEM para sistemas fotovoltaicos y movilidad china.</p>
     </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-item">
-                <h4>Soporte / Support</h4>
-                <p>Email: info@fixvolt.es</p>
-                <p>Marbella, Costa del Sol</p>
-            </div>
-            <div class="footer-item">
-                <h4>Logística / Logistics</h4>
-                <p>Recogida nacional / National Pickup</p>
-                <p>MRW • SEUR • GLS</p>
-            </div>
-            <div>
-                <h4 style="color: var(--gold); font-size: 14px; margin-bottom: 15px;">MARCAS</h4>
-                <p style="font-size: 11px; color: #666;">DEYE • VICTRON • HUAWEI • FOXESS • FRONIUS • SMA</p>
-            </div>
-        </div>
-        <p style="font-size: 10px; color: #333; margin-top: 40px; border-top: 1px solid #111; padding-top: 20px;">
-            © 2026 FIXVOLT ESPAÑA. HIGH-END INVERTER SERVICE.
-        </p>
-    </footer>
-
+    <div class="brand-list">
+        <div>HUAWEI</div><div>MG MOTOR</div><div>DEYE</div><div>OMODA</div><div>SOLIS</div><div>BYD</div>
+    </div>
+    <div class="grid">
+        <a href="/mg-zs-problemas-comunes-opiniones" class="card">
+            <h3>Automoción China</h3>
+            <p>Diagnóstico de sistemas DCT, gestión de baterías y actualizaciones de firmware para MG y Omoda.</p>
+        </a>
+        <a href="/huawei-sun2000-error-2062-aislamiento-dc" class="card">
+            <h3>Energía Solar</h3>
+            <p>Resolución de errores críticos en inversores Huawei, Solis и Deye. Soporte técnico especializado.</p>
+        </a>
+        <a href="/recambios-compatibles-mg-zs-filtros-aceite" class="card">
+            <h3>Hub Logístico</h3>
+            <p>Acceso directo a stock de componentes OEM y manuales de taller desde Polonia para toda España.</p>
+        </a>
+    </div>
 </body>
 </html>
